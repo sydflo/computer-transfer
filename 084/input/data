@@ -1,0 +1,92 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+# == Temperature & Salinity Profiles ==
+ tRefFile='Tref.bin',
+ sRef= 300*35.,
+
+# == Model Viscosity ==
+ viscAz=1.E-5,
+ viscAh=1.E-5,
+# viscA4=0.E12,
+# implicitViscosity=.TRUE., 
+
+# == Model Bottom & Side Conditions == 
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.TRUE.,
+
+# == Model Diffusion == 
+ diffKhT=1.E-5,
+ diffKzT=1.E-5,
+ saltStepping=.FALSE.,
+# ivdc_kappa=1.,
+# implicitDiffusion=.TRUE.,
+
+# == Parameters ==
+ f0=0.0,
+ beta=0.E-11,
+ eosType='LINEAR',
+ tAlpha=2.E-4,
+ sBeta =0.E-4,
+ gravity=9.81,
+ tempAdvScheme=33,
+ staggerTimeStep=.TRUE.,
+
+# == Surface & Boundary == 
+# rigidLid=.TRUE.,
+ implicitFreeSurface=.TRUE.,
+ exactConserv=.TRUE.
+ nonHydrostatic=.TRUE.,
+ hFacMin=0.2,
+
+# == I/O Precision ==
+ useSingleCpuIO=.TRUE., 
+ readBinaryPrec=64,
+ writeBinaryPrec=64,
+# writeStatePrec=64,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-13,
+ cg3dMaxIters=400,
+ cg3dTargetResidual=1.E-13,
+ &
+
+# Time stepping parameters
+ &PARM03
+# nIter0=0,
+# nTimeSteps=40250,
+ startTime=0.,
+ endTime=25000.,
+ deltaT=.1,
+ abEps=0.1,
+ momDissip_In_AB=.FALSE.,
+ pChkptFreq=5000.,
+ chkptFreq=2500.,
+# Model Output Written (s)
+ dumpFreq=0.,
+ dumpInitAndLast=.FALSE.,
+ monitorFreq=250.,
+ monitorSelect=2,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ delXfile='delXvar.bin',
+ delY=0.11,
+ delRfile='delZvar.bin',
+ &
+
+# Input datasets
+ &PARM05
+ hydrogThetaFile='T0.bin',
+ bathyFile='topo.bin',
+ &
+
+ 

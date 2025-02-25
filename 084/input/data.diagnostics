@@ -1,0 +1,60 @@
+# diagnostics Package
+# Energy terms...
+ &diagnostics_list 
+# ------ 3D variables ------------
+ filename(1)   = 'statevars'
+ frequency(1)  = -60,
+ timePhase(1)      =  0,	
+ fields(1:9,1) = 'UVEL    ',
+     	       	 'VVEL    ',
+	         'WVEL    ',
+		 'THETA   ',
+		 'SALT    ',
+		 'PHIHYD  ',
+                 'PHI_NH  ',
+                 'DRHODR  ',
+                 'RHOAnoma',
+
+# ----- 2D state vars -------------  
+ filename(2)   = 'statevars2d'
+ frequency(2)  = -60,
+ timePhase(2)  = 0,
+ fields(1:2,2) = 'ETAN    ',
+ 	         'PHIBOT  ',
+
+# ------- Zonal Momentum - -------
+ filename(3)   = 'momentumvars_u'
+ frequency(3)  = -60,
+ timePhase(3)  = 0,
+ fields(1:7,3) = 'TOTUTEND  ',
+                 'Um_Diss   ',
+                 'Um_Advec  ',
+                 'Um_dPhiX  ',
+                 'Um_Ext    ',
+                 'momKE     ',
+                 'AB_gU     ',
+
+# -------- Vertical Momentum ------
+ filename(4)   = 'momentumvars_w'
+ frequency(4)  = -60,
+ timePhase(4)  = 0,
+ fields(1:4,4) = 'AB_gW     ',
+                 'ADVr_TH   ',
+                 'Wm_Advec  ',
+		 'Wm_Diss   ',
+
+# -------- Time Averaged --------
+ filename(5)   ='time_ave'
+ frequency(5)  = 450,
+ timephase(5)  = 0,
+ fields(1:7,5) = 'UVEL      ',
+		 'VVEL      ',
+		 'WVEL      ',
+		 'Um_Diss   ',
+		 'Wm_Diss   ',
+		 'PHIHYD    ',
+		 'PHI_NH    ',	
+/
+
+&diag_statis_parms
+/
